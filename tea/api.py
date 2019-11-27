@@ -12,6 +12,8 @@ import tea.runtimeDataStructures
 import tea.z3_solver
 from tea.z3_solver.solver import set_mode
 
+from tea.runtimeDataStructures.dataset import Dataset
+
 from typing import Dict
 from .global_vals import *
 from pathlib import Path
@@ -47,13 +49,17 @@ def download_data(url, file_name):
 
 
 # @sets global dataset_path and dataaset_obj (of type Dataset)
-def data(file, key=None):
+def data_old(file, key=None):
     global dataset_path, dataset_obj, dataset_id
 
     # Require that the path to the data must be a string or a Path object
     assert (isinstance(file, str) or isinstance(file, Path))
     dataset_path = file
     dataset_id = key
+
+
+def data(file, key=None): 
+    return Dataset(file)
 
 
 def define_variables(vars: Dict[str, str]):
