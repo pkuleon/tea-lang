@@ -1,3 +1,5 @@
+import attr
+
 from .build import (load_data, load_data_from_url, const,
                     ordinal, isordinal,
                     nominal, isnominal,
@@ -19,6 +21,7 @@ from tea.runtimeDataStructures.design import AbstractDesign, ObservationalDesign
 from typing import Dict
 from .global_vals import *
 from pathlib import Path
+
 
 # Set at start of programs
 # Used across functions
@@ -255,7 +258,7 @@ class Tea(object):
         self.variables = self.define_variables(variables)
         self.design = self.define_study_design(design, self.variables)
 
-    def load_data(self, file, key=None): 
+    def data(self, file, key=None): 
         self.data = Dataset(file)
 
         return self.data
