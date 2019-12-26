@@ -204,3 +204,5 @@ class Tea(object):
 
     def hypothesize(self, hypothesis): 
         pass
+        
+        # return Hypothesis(hypothesis, self.variables) -- call to the AbstractHypothesis class
